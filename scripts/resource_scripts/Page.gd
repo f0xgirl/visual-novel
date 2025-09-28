@@ -1,3 +1,3 @@
 extends Resource
 class_name Page
-@export var text: String
+@export_multiline var text: String

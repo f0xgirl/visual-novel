@@ -1,20 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://c37dms8qtn2af"]
+[gd_scene load_steps=8 format=3 uid="uid://c37dms8qtn2af"]
 
 [ext_resource type="Script" uid="uid://b0b5hnfkc8eoc" path="res://scripts/logic.gd" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://dabsfh4wuycvl" path="res://scripts/game.gd" id="1_feb5d"]
-[ext_resource type="Script" uid="uid://c2yyb25xoda66" path="res://scripts/resources/Page.gd" id="2_feb5d"]
+[ext_resource type="Script" uid="uid://dfbptscs1qmpa" path="res://scripts/resource_scripts/Page.gd" id="3_feb5d"]
 
 [sub_resource type="Resource" id="Resource_fc0e3"]
-script = ExtResource("2_feb5d")
-metadata/_custom_type_script = "uid://c2yyb25xoda66"
+script = ExtResource("3_feb5d")
+metadata/_custom_type_script = "uid://dfbptscs1qmpa"
 
 [sub_resource type="Resource" id="Resource_7jktm"]
-script = ExtResource("2_feb5d")
-metadata/_custom_type_script = "uid://c2yyb25xoda66"
+script = ExtResource("3_feb5d")
+metadata/_custom_type_script = "uid://dfbptscs1qmpa"
 
 [sub_resource type="Resource" id="Resource_ryrav"]
-script = ExtResource("2_feb5d")
-metadata/_custom_type_script = "uid://c2yyb25xoda66"
+script = ExtResource("3_feb5d")
+metadata/_custom_type_script = "uid://dfbptscs1qmpa"
+
+[sub_resource type="Resource" id="Resource_eow3j"]
+script = ExtResource("3_feb5d")
+metadata/_custom_type_script = "uid://dfbptscs1qmpa"
 
 [node name="Game" type="Node"]
 script = ExtResource("1_feb5d")
@@ -27,4 +31,4 @@ offset_bottom = 40.0
 
 [node name="logic" type="Node" parent="."]
 script = ExtResource("1_e2o6t")
-controller = Array[ExtResource("2_feb5d")]([SubResource("Resource_fc0e3"), SubResource("Resource_7jktm"), SubResource("Resource_ryrav")])
+controller = Array[ExtResource("3_feb5d")]([SubResource("Resource_fc0e3"), SubResource("Resource_7jktm"), SubResource("Resource_ryrav"), SubResource("Resource_eow3j")])
