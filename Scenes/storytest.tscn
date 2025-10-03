@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://blvxdg1luxxiu"]
+
+[sub_resource type="Theme" id="Theme_gypyo"]
+default_font_size = 50
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="text" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -788.0
+offset_top = -385.5
+offset_right = -324.0
+offset_bottom = -222.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_gypyo")
+text = "ADFFAFAF"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 2
