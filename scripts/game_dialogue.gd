@@ -1,39 +1,43 @@
 extends Control
-# this is where all the dialogue goes idk
+class_name dialogue_scene
 
 @export var dialogue: Array [Page]
 @onready var text = %text
 
+var skip_dialogue := false
 var current_displayed_text := 0 #dont put in negatives, not sure how youd do that but dont.
 
 func _ready() -> void:
 	GlobalSignals.connect("send_text", text_advance)
-	display_selected_text(current_displayed_text)
+	get_dialogue_string(current_displayed_text, dialogue[current_displayed_text].time_between_char)
 
 
 
 func text_advance () -> void:
 	current_displayed_text += 1
 	print(current_displayed_text)
-	display_selected_text(current_displayed_text)
+	get_dialogue_string(current_displayed_text, dialogue[current_displayed_text].time_between_char) #holy shit why did i name this so long
 
 
 
-func display_selected_text (id: int) -> void:
-	print(dialogue[id].text)
-	text.text = dialogue[id].text
+func display_selected_text (chr: String = "") -> void:
+	text.text = chr
 	
 
-func get_dialogue_string(id: int) -> void:
-	var current_text: String
-	var text_length := dialogue[id].text.length()
+func get_dialogue_string(id: int, speed: float = 1.0) -> void:
+	var in_dialogue := false
+	var current_text := "" #string
+	var text_length := dialogue[id].text.length() #int
+	print(speed)
 	for a in text_length:
+		if Input.is_action_just_pressed("action1") and in_dialogue == true:
+			print("pressed")
+			skip_dialogue = true
+		in_dialogue = true
 		current_text += dialogue[id].text[a]
-		print(current_text)
-		await get_tree().create_timer(1).timeout
-	#print(dialogue[id].text[1])
-
-
-
-func scroll_text (text: String) -> void:
-	pass
+		display_selected_text(current_text)
+		await get_tree().create_timer(speed).timeout
+		if skip_dialogue:
+			skip_dialogue = false
+			break
+		

@@ -2,6 +2,8 @@ extends Node
 
 const TEST_DIALOGUE = preload("res://Scenes/test_dialogue.tscn")
 
+#const MAIN_MENU
+
 func _ready() -> void:
 	var test = TEST_DIALOGUE.instantiate()
 	add_child(test)

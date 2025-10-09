@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://xvi5at0grxwn"]
+
+[ext_resource type="Script" uid="uid://dbi1dyuldyidq" path="res://scripts/game_dialogue.gd" id="1_thk4l"]
+[ext_resource type="Script" uid="uid://dfbptscs1qmpa" path="res://scripts/resource_scripts/Page.gd" id="2_yvnav"]
+
+[sub_resource type="Resource" id="Resource_lewil"]
+script = ExtResource("2_yvnav")
+text = "option 1 has been chosen1"
+metadata/_custom_type_script = "uid://dfbptscs1qmpa"
+
+[sub_resource type="Resource" id="Resource_wf3o1"]
+script = ExtResource("2_yvnav")
+text = "how incredible!"
+metadata/_custom_type_script = "uid://dfbptscs1qmpa"
+
+[node name="test_dialogue_option1" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_thk4l")
+dialogue = Array[ExtResource("2_yvnav")]([SubResource("Resource_lewil"), SubResource("Resource_wf3o1")])
+metadata/_custom_type_script = "uid://dbi1dyuldyidq"

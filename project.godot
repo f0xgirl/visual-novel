@@ -19,6 +19,10 @@ config/icon="uid://b6fss2np6cqq8"
 
 GlobalSignals="*res://scripts/autoloads/GlobalSignals.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 action1={

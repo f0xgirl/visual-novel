@@ -1,46 +1,61 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsq18uooimchs"]
+[gd_scene load_steps=10 format=3 uid="uid://bsq18uooimchs"]
 
 [ext_resource type="Script" uid="uid://dbi1dyuldyidq" path="res://scripts/game_dialogue.gd" id="1_baube"]
 [ext_resource type="Script" uid="uid://dfbptscs1qmpa" path="res://scripts/resource_scripts/Page.gd" id="2_jlnq6"]
+[ext_resource type="Texture2D" uid="uid://c01qq76xmlett" path="res://graphics/placeholdericon.png" id="3_8vpsi"]
+[ext_resource type="Texture2D" uid="uid://b6fss2np6cqq8" path="res://graphics/placeholdericon.svg" id="4_iibv7"]
 
 [sub_resource type="Resource" id="Resource_7wmsu"]
 script = ExtResource("2_jlnq6")
 text = "hi!"
+time_between_char = 0.1
 metadata/_custom_type_script = "uid://dfbptscs1qmpa"
 
 [sub_resource type="Resource" id="Resource_8vpsi"]
 script = ExtResource("2_jlnq6")
 text = "hello!"
+time_between_char = 0.1
 metadata/_custom_type_script = "uid://dfbptscs1qmpa"
 
 [sub_resource type="Resource" id="Resource_iibv7"]
 script = ExtResource("2_jlnq6")
 text = "nice to meet you!"
+time_between_char = 0.1
 metadata/_custom_type_script = "uid://dfbptscs1qmpa"
 
 [sub_resource type="Resource" id="Resource_e1bvc"]
 script = ExtResource("2_jlnq6")
 text = "you too!"
+time_between_char = 0.1
 metadata/_custom_type_script = "uid://dfbptscs1qmpa"
 
 [sub_resource type="Theme" id="Theme_feb5d"]
 default_font_size = 50
 
-[node name="game_dialogue" type="Control"]
-layout_mode = 3
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 5.0
-offset_top = -117.0
-offset_right = 45.0
-offset_bottom = -77.0
-grow_vertical = 2
-size_flags_horizontal = 4
+[node name="CanvasLayer" type="CanvasLayer"]
+offset = Vector2(0, -77)
+transform = Transform2D(1, 0, 0, 1, 0, -77)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="game_dialogue" type="Control" parent="MarginContainer"]
+layout_mode = 2
 script = ExtResource("1_baube")
 dialogue = Array[ExtResource("2_jlnq6")]([SubResource("Resource_7wmsu"), SubResource("Resource_8vpsi"), SubResource("Resource_iibv7"), SubResource("Resource_e1bvc")])
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/game_dialogue"]
 self_modulate = Color(1, 1, 1, 0.75686276)
 layout_mode = 1
 anchors_preset = 8
@@ -56,7 +71,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.19434929, 0.19434926, 0.19434926, 1)
 
-[node name="text" type="RichTextLabel" parent="."]
+[node name="text" type="RichTextLabel" parent="MarginContainer/game_dialogue"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
@@ -74,3 +89,11 @@ text = "ADFFAFAF"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="Placeholdericon" type="Sprite2D" parent="MarginContainer/game_dialogue"]
+position = Vector2(-286, -271)
+texture = ExtResource("3_8vpsi")
+
+[node name="Placeholdericon2" type="Sprite2D" parent="MarginContainer/game_dialogue"]
+position = Vector2(295, -257)
+texture = ExtResource("4_iibv7")
